@@ -20,7 +20,7 @@ class ModbusServer:
             context=self.data_store.context,
             identity=self.device_identity.identity,
             address=("0.0.0.0", 5020),
-            framer=FramerSocket,
+            framer="socket",
         )
 
     def start(self):
@@ -31,4 +31,3 @@ class ModbusServer:
         asyncio.set_event_loop(loop)
         loop.run_until_complete(self.start_async_server())
         loop.run_forever()
-
